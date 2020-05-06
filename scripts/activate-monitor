@@ -1,0 +1,38 @@
+#!/bin/bash
+
+
+DEFAULT=eDP1
+FIRST=DP1-3
+SECOND=DP1-1
+HDMI=HDMI1
+
+if [ ! $# -eq 1 ]; then
+    echo "================================="
+    echo "Usage: activate-monitor <param>"
+    echo "Just one: 1"
+    echo "Two displays: 2"
+    echo "Three displays: 3"
+    echo "================================="
+    exit 1
+fi
+
+case $1 in
+    3)
+        xrandr --output $FIRST --right-of $DEFAULT --auto
+        xrandr --output $SECOND --right-of $FIRST --auto
+    ;;
+    
+    2)
+        xrandr --output $HDMI --right-of $DEFAULT --auto
+    ;;
+
+    1)
+        xrandr --output $HDMI --off 
+        xrandr --output $FIRST --off
+        xrandr --output $SECOND --off
+    ;;
+    
+    *)
+        echo "Not known parameter"
+    ;;
+esac
