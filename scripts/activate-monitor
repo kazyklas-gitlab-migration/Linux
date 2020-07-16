@@ -2,8 +2,8 @@
 
 
 DEFAULT=eDP1
-FIRST=DP1-3
-SECOND=DP1-1
+FIRST=DP-1-1
+SECOND=DP-1-2
 HDMI=HDMI1
 
 if [ ! $# -eq 1 ]; then
