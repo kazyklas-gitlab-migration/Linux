@@ -1,0 +1,22 @@
+# Download git repository with my config files
+- name: Clone repo with deployment for kubernetes and the whole project.
+  git:
+    repo: https://gitlab.com/kazyklas/linux.git
+    dest: /home/tklas/Gitlab
+
+- name: Copy config files for terminator
+  copy:
+    src: /home/tklas/Gitlab/linux/config/terminator/config
+    remote_src: yes
+
+- name: Copy config files for i3 
+  copy:
+    src: /home/tklas/Gitlab/linux/config/i3 
+    dest: /home/tklas/,config/i3
+    remote_src: yes
+
+- name: Copy .vimrc
+  copy:
+    src: /home/tklas/Gitlab/linux/dotfiles/.vimrc
+    dest: /home/tklas
+    remote_src: yes

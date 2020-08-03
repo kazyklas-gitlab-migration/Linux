@@ -1,0 +1,14 @@
+# Deploy to the hosts in inventory
+
+- hosts: all
+  # speed up deployment and forbid gathering unnecesary stuff
+ 
+  gather_facts: false
+  tasks:
+    - name: Gather required facts facts
+      setup:
+      
+    - include: tasks/install-packages.yml
+
+    - include: tasks/configure-system.yml
+
