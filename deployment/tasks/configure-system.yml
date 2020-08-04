@@ -28,3 +28,4 @@
     src: /home/tklas/Gitlab/linux/dotfiles/.vimrc
     dest: /home/tklas
     remote_src: yes
+

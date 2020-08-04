@@ -19,6 +19,7 @@
     - vim
     - terminator
     - snap
+    - zsh
     
 # Install google chrome  
 - name: Does the Google apt file exist?
@@ -59,3 +60,6 @@
       - libvirt-clients 
       - bridge-utils 
       - virt-manager 
+
+- name: Install oh my zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
