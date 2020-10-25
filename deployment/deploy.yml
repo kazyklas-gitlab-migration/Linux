@@ -2,7 +2,10 @@
 
 - hosts: all
   # speed up deployment and forbid gathering unnecesary stuff
- 
+  
+  vars:
+    - apt_file: /etc/apt/sources.list.d/google-chrome.list
+
   gather_facts: false
   tasks:
     - name: Gather required facts facts

@@ -20,6 +20,8 @@
     - terminator
     - snap
     - zsh
+    - feh
+    - pavucontrol
     
 # Install google chrome  
 - name: Does the Google apt file exist?
@@ -36,14 +38,14 @@
   when: google_apt_exists.rc == 1
 
 - name: Install Google Chrome
-  apt: pkg=google-chrome-stable state=installed update_cache=yes
+  apt: pkg=google-chrome-stable state=present update_cache=yes
 
-# Install some snap packages
-- name: Install snap packages
-  snap: 
-    name:
-      - spotify
-      - lxc
+  ## Install some snap packages
+  #- name: Install snap packages
+  #  snap: 
+  #    name:
+  #      - spotify
+  #      - lxc
 
 # Install virtualization tools
 - name: Install virtualization tools 
@@ -61,5 +63,5 @@
       - bridge-utils 
       - virt-manager 
 
-- name: Install oh my zsh
-  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        #- name: Install oh my zsh
+        #  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
