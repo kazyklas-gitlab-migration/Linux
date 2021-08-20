@@ -10,92 +10,87 @@ export ZSH="/home/tklas/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="steeef"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting dirhistory sudo)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# setup correction
+setopt correct
 
-# export MANPATH="/usr/local/man:$MANPATH"
+#. "/home/tklas/.acme.sh/acme.sh.env"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+##########################################################################
+#       ALIASES
+##########################################################################
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+alias genpasswd="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo"
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# Git aliases
+alias gclone="git clone"
+alias gpush="git push"
+alias gpull="git pull"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Docker aliases
+alias dpsa="docker ps -a"
+alias drun="docker run"
+alias dlogs="docker logs --follow --timestamps"
+alias dpull="docker pull"
 
-[ -f ~/.resh/shellrc ] && source ~/.resh/shellrc
+# Listing aliases
+alias ll='ls -alF --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -CF --color=auto'
+
+# K8s aliases
+alias kga='kubectl get all'
+alias kgn='kubectl get nodes'
+
+# Create script
+alias create-script='cp /home/tklas/Documents/script-template $(date +%Y%m%d)_script.sh'
+
+##########################################################################
+#      HISTORY manipulation 
+##########################################################################
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000000
+HISTFILESIZE=500000
+
+
+##########################################################################
+#       FUNCTIONS
+##########################################################################
+
+# This function will take the file and based on the 
+# extension will use the correct algorithm to untar an archive
+extract() { 
+    if [ -f $1 ] ; then 
+    case $1 in 
+        *.tar.bz2)   nice -n 10 ionice -c 3 tar xjf $1     ;; 
+        *.tar.gz)    nice -n 10 ionice -c 3 tar xzf $1     ;; 
+        *.bz2)       nice -n 10 ionice -c 3 bunzip2 $1     ;; 
+        *.rar)       nice -n 10 ionice -c 3 unrar e $1     ;; 
+        *.gz)        nice -n 10 ionice -c 3 gunzip $1      ;; 
+        *.tar)       nice -n 10 ionice -c 3 tar xf $1      ;; 
+        *.tbz2)      nice -n 10 ionice -c 3 tar xjf $1     ;; 
+        *.tgz)       nice -n 10 ionice -c 3 tar xzf $1     ;; 
+        *.zip)       nice -n 10 ionice -c 3 unzip $1       ;; 
+        *.Z)         nice -n 10 ionice -c 3 uncompress $1  ;; 
+        *.7z)        nice -n 10 ionice -c 3 7z x $1        ;; 
+        *)     echo "'$1' cannot be extracted via extract()" ;; 
+    esac 
+    else 
+        echo "'$1' is not a valid file" 
+    fi 
+} 
+
+
