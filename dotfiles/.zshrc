@@ -94,3 +94,4 @@ extract() {
 } 
 
 
+PATH=$PATH:/home/ubuntu/Documents/linux/scripts 

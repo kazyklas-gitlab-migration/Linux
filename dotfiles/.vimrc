@@ -107,9 +107,9 @@ command! MakeTags !ctags -R .
 
 " PLUGINS:
 
-execute pathogen#infect()
-
-let g:airline_theme='wombat'
-
-colorscheme nord
+" # execute pathogen#infect()
+" # 
+" # let g:airline_theme='wombat'
+" # 
+" # colorscheme nord
 

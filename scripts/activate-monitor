@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 DEFAULT=eDP1
 FIRST=DP-1-1
 SECOND=DP-1-2
