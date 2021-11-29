@@ -1,41 +1,33 @@
 # Download git repository with my config files
-- name: Create folder for shared Database.
-  file:
-    path: /home/tklas/Documents/Gitlab
-    state: directory
-    owner: tklas
-    group: tklas
-    mode: '0777'
-
-    #- name: Clone repo with deployment for kubernetes and the whole project.
-    #  git:
-    #    repo: https://gitlab.com/kazyklas/linux.git
-    #    dest: /home/tklas/Documents/Gitlab
+- name: Clone the repository 
+  git:
+    repo: https://gitlab.com/kazyklas/linux.git
+    dest: /home/ubuntu/Documents
 
 - name: Create folder for terminator
   file:
-    path: /home/tklas/.config/terminator
+    path: /home/ubuntu/.config/terminator
     state: directory
-    owner: tklas
-    group: tklas
+    owner: ubuntu
+    group: ubuntu
     mode: '0777'
 
 - name: Copy config files for terminator
   copy:
-    src: /home/tklas/Documents/Gitlab/linux/config/terminator/config
-    dest: /home/tklas/.config/terminator/config
+    src: /home/ubuntu/Documents/Gitlab/linux/config/terminator/config
+    dest: /home/ubuntu/.config/terminator/config
     remote_src: yes
 
 - name: Copy config files for i3 
   copy:
-    src: /home/tklas/Documents/Gitlab/linux/config/i3 
-    dest: /home/tklas/.config/i3
+    src: /home/ubuntu/Documents/Gitlab/linux/config/i3 
+    dest: /home/ubuntu/.config/i3
     remote_src: yes
 
     #- name: Copy .vimrc
     #  copy:
-    #    src: /home/tklas/Documets/Gitlab/linux/dotfiles/.vimrc
-    #    dest: /home/tklas
+    #    src: /home/ubuntu/Documets/Gitlab/linux/dotfiles/.vimrc
+    #    dest: /home/ubuntu
     #    remote_src: yes
 
 - name: Install pathogen for vim
