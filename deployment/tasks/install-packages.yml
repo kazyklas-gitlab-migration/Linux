@@ -12,7 +12,6 @@
     - nmap
     - net-tools
     - ansible
-    - i3
     - git
     - curl
     - wget
@@ -21,47 +20,21 @@
     - snap
     - zsh
     - feh
-    - pavucontrol
+    - docker-compose
+    - ffmpeg
+    - keepass2
+    - calibre
+    - wine 
+    - gimp 
+    - vlc 
+    - compton
+    - openvpn 
     
-# Install google chrome  
-- name: Does the Google apt file exist?
-  command: test -f {{apt_file}}
-  register: google_apt_exists
-  ignore_errors: True
+# Install some snap packages
+- name: Install snap packages
+  snap: 
+    name:
+      - spotify
 
-- name: Add Google Chrome key
-  shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-  when: google_apt_exists.rc == 1
-
-- name: Add Google Chrome repo
-  copy: content="deb http://dl.google.com/linux/chrome/deb/ stable main" dest={{apt_file}} owner=root group=root mode=644
-  when: google_apt_exists.rc == 1
-
-- name: Install Google Chrome
-  apt: pkg=google-chrome-stable state=present update_cache=yes
-
-  ## Install some snap packages
-  #- name: Install snap packages
-  #  snap: 
-  #    name:
-  #      - spotify
-  #      - lxc
-
-# Install virtualization tools
-- name: Install virtualization tools 
-  apt:
-    name: "{{packages}}"
-    state: present
-    autoremove: yes
-    update_cache: yes
-  vars:
-    packages:
-      - qemu 
-      - qemu-kvm 
-      - libvirt-daemon 
-      - libvirt-clients 
-      - bridge-utils 
-      - virt-manager 
-
-        #- name: Install oh my zsh
-        #  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+- name: Install oh my zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
