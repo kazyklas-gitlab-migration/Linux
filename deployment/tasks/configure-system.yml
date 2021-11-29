@@ -4,6 +4,10 @@
     repo: https://gitlab.com/kazyklas/linux.git
     dest: /home/ubuntu/Documents
 
+########################################################################
+# Create the folders for the config files 
+########################################################################
+
 - name: Create folder for terminator
   file:
     path: /home/ubuntu/.config/terminator
@@ -12,9 +16,23 @@
     group: ubuntu
     mode: '0777'
 
+
+- name: Create folder for i3
+  file:
+    path: /home/ubuntu/.config/i3
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    mode: '0777'
+
+
+########################################################################
+# Copy config files to the desired directories
+########################################################################
+
 - name: Copy config files for terminator
   copy:
-    src: /home/ubuntu/Documents/Gitlab/linux/config/terminator/config
+    src: /home/ubuntu/Documents/linux/config/terminator/config
     dest: /home/ubuntu/.config/terminator/config
     remote_src: yes
 
@@ -24,11 +42,14 @@
     dest: /home/ubuntu/.config/i3
     remote_src: yes
 
-    #- name: Copy .vimrc
-    #  copy:
-    #    src: /home/ubuntu/Documets/Gitlab/linux/dotfiles/.vimrc
-    #    dest: /home/ubuntu
-    #    remote_src: yes
 
-- name: Install pathogen for vim
-  shell: mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+########################################################################
+# Copy dotfiles to the system
+########################################################################
+
+- name: Copy .vimrc
+  copy:
+    src: /home/ubuntu/Documets/linux/dotfiles/*
+    dest: /home/ubuntu
+    remote_src: yes
+
