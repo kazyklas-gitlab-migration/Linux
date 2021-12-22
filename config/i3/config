@@ -197,6 +197,9 @@ gaps outer 10
 bindsym $mod+Shift+d exec /bin/bash -c "/home/tklas/.config/i3/adjust-brightnes.sh dec"
 bindsym $mod+Shift+i exec /bin/bash -c "/home/tklas/.config/i3/adjust-brightnes.sh inc"
 
+#### Run passwd manager
+bindsym $mod+Shift+b exec /home/ubuntu/Downloads/Buttercup-linux-x86_64.AppImage
+
 #### Borders
 for_window [class="XTerm"] floating enable
 for_window [class="urxvt"] border pixel 1
@@ -211,7 +214,7 @@ new_window pixel 2
 
 #### Setup wallpaper
 # exec --no-startup-id feh --bg-fill /home/tklas/Pictures/batman.jpg
-exec --no-startup-id feh --bg-fill /home/tklas/Pictures/Datamole-Green-4K.jpg
+exec --no-startup-id feh --bg-fill /home/ubuntu/Pictures/Datamole-Green-4K.jpg
 
 #### Start terminal transparency
 exec_always compton

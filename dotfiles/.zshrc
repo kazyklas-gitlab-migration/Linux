@@ -51,7 +51,7 @@ alias kga='kubectl get all'
 alias kgn='kubectl get nodes'
 
 # Create script
-alias create-script='cp /home/tklas/Documents/script-template $(date +%Y%m%d)_script.sh'
+# alias create-script='cp /home/tklas/Documents/script-template $(date +%Y%m%d)_script.sh'
 
 ##########################################################################
 #      HISTORY manipulation 

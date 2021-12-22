@@ -1,248 +1,28 @@
 [global_config]
-  focus = mouse
-  window_state = maximise
+  borderless = True
   title_hide_sizetext = True
-  title_receive_bg_color = "#00ff00"
-  enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
-  suppress_multiple_term_dialog = True
-[keybindings]
+  enabled_plugins = ,
 [profiles]
   [[default]]
-    icon_bell = False
-    background_color = "#1b1d1e"
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#fcef0c"
-    font = Ubuntu Mono 13
-    foreground_color = "#fff01c"
+    cursor_color = "#00ff00"
+    foreground_color = "#00ff00"
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 5000
-    palette = "#1b1d1e:#e6dc44:#c8be46:#f4fd22:#737174:#747271:#62605f:#c6c5bf:#505354:#fff78e:#fff27d:#feed6c:#919495:#9a9a9d:#a3a3a6:#dadbd6"
-    use_system_font = False
-  [[NightLion v2]]
-    icon_bell = False
-    background_color = "#171717"
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#bbbbbb"
-    font = Ubuntu Mono 13
-    foreground_color = "#bbbbbb"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#4c4c4c:#bb0000:#04f623:#f3f167:#64d0f0:#ce6fdb:#00dadf:#bbbbbb:#555555:#ff5555:#7df71d:#ffff55:#62cbe8:#ff9bf5:#00ccd8:#ffffff"
-    use_system_font = False
-  [[ENCOM]]
-    icon_bell = False
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#bbbbbb"
-    font = Ubuntu Mono 13
-    foreground_color = "#00a595"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#000000:#9f0000:#008b00:#ffd000:#0081ff:#bc00ca:#008b8b:#bbbbbb:#555555:#ff0000:#00ee00:#ffff00:#0000ff:#ff00ff:#00cdcd:#ffffff"
-    use_system_font = False
-  [[After Dark]]
-    icon_bell = False
-    background_color = "#10111b"
-    background_darkness = 0.95
-    background_type = transparent
+  [[presentation]]
+    background_color = "#ffffff"
     cursor_color = "#aaaaaa"
-    font = Ubuntu Mono 13
-    foreground_color = "#00ff00"
+    foreground_color = "#000000"
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_lines = 5000
-    palette = "#2e3436:#ef4a9e:#00d2bc:#e7ca7a:#9399fa:#ca5bcc:#86d079:#d3d7cf:#555753:#ef4a9e:#00d2bc:#e7ca7a:#9399fa:#ca5bcc:#86d079:#eeeeec"
-    use_system_font = False
-  [[Argonaut]]
-    icon_bell = False
-    background_color = "#0e1019"
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#ff0018"
-    font = Ubuntu Mono 13
-    foreground_color = "#fffaf4"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#232323:#ff000f:#8ce10b:#ffb900:#008df8:#6d43a6:#00d8eb:#ffffff:#444444:#ff2740:#abe15b:#ffd242:#0092ff:#9a5feb:#67fff0:#ffffff"
-    use_system_font = False
-  [[Atom]]
-    icon_bell = False
-    background_color = "#161719"
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#d0d0d0"
-    font = Ubuntu Mono 13
-    foreground_color = "#c5c8c6"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#000000:#fd5ff1:#87c38a:#ffd7b1:#85befd:#b9b6fc:#85befd:#e0e0e0:#000000:#fd5ff1:#94fa36:#f5ffa8:#96cbfe:#b9b6fc:#85befd:#e0e0e0"
-    use_system_font = False
-  [[deep]]
-    icon_bell = False
-    background_color = "#090909"
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#d0d0d0"
-    font = Ubuntu Mono 13
-    foreground_color = "#cdcdcd"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#000000:#d70005:#1cd915:#d9bd26:#5665ff:#b052da:#50d2da:#e0e0e0:#535353:#fb0007:#22ff18:#fedc2b:#9fa9ff:#e09aff:#8df9ff:#ffffff"
-    use_system_font = False
-  [[old]]
-    icon_bell = False
-    background_color = "#2e3436"
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#bbbbbb"
-    font = Ubuntu Mono 13
-    foreground_color = "#00ff00"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#000000:#9f0000:#008b00:#ffd000:#0081ff:#bc00ca:#008b8b:#bbbbbb:#555555:#ff0000:#00ee00:#ffff00:#0000ff:#ff00ff:#00cdcd:#ffffff"
-    use_system_font = False
-  [[Aco]]
-    icon_bell = False
-    background_color = "#1f1305"
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#bae2fb"
-    font = Ubuntu Mono 13
-    foreground_color = "#b4e1fd"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#3f3f3f:#ff0883:#83ff08:#ff8308:#0883ff:#8308ff:#08ff83:#bebebe:#474747:#ff1e8e:#8eff1e:#ff8e1e:#0883ff:#8e1eff:#1eff8e:#c4c4c4"
-    use_system_font = False
-  [[Cobalt Neon]]
-    icon_bell = False
-    background_color = "#142838"
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#c4206f"
-    font = Ubuntu Mono 13
-    foreground_color = "#8ff586"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#142631:#ff2320:#3ba5ff:#e9e75c:#8ff586:#781aa0:#8ff586:#ba46b2:#fff688:#d4312e:#8ff586:#e9f06d:#3c7dd2:#8230a7:#6cbc67:#8ff586"
-    use_system_font = False
-  [[Hurtado]]
-    icon_bell = False
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#bbbbbb"
-    font = Ubuntu Mono 13
-    foreground_color = "#dbdbdb"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#575757:#ff1b00:#a5e055:#fbe74a:#496487:#fd5ff1:#86e9fe:#cbcccb:#262626:#d51d00:#a5df55:#fbe84a:#89beff:#c001c1:#86eafe:#dbdbdb"
-    use_system_font = False
-  [[IC_Orange_PPL]]
-    icon_bell = False
-    background_color = "#262626"
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#fc531d"
-    font = Ubuntu Mono 13
-    foreground_color = "#ffcb83"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#000000:#c13900:#a4a900:#caaf00:#bd6d00:#fc5e00:#f79500:#ffc88a:#6a4f2a:#ff8c68:#f6ff40:#ffe36e:#ffbe55:#fc874f:#c69752:#fafaff"
-    use_system_font = False
-  [[Jackie Brown]]
-    icon_bell = False
-    background_color = "#2c1d16"
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#23ff18"
-    font = Ubuntu Mono 13
-    foreground_color = "#ffcc2f"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#2c1d16:#ef5734:#2baf2b:#bebf00:#246eb2:#d05ec1:#00acee:#bfbfbf:#666666:#e50000:#86a93e:#e5e500:#0000ff:#e500e5:#00e5e5:#e5e5e5"
-    use_system_font = False
-  [[LiquidCarbonTransparent]]
-    icon_bell = False
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#ffffff"
-    font = Ubuntu Mono 13
-    foreground_color = "#afc2c2"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#000000:#ff3030:#559a70:#ccac00:#0099cc:#cc69c8:#7ac4cc:#bccccc:#000000:#ff3030:#559a70:#ccac00:#0099cc:#cc69c8:#7ac4cc:#bccccc"
-    use_system_font = False
-  [[NightLion v1]]
-    icon_bell = False
-    background_darkness = 0.95
-    background_type = transparent
-    cursor_color = "#bbbbbb"
-    font = Ubuntu Mono 13
-    foreground_color = "#bbbbbb"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#4c4c4c:#bb0000:#5fde8f:#f3f167:#276bd8:#bb00bb:#00dadf:#bbbbbb:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
-    use_system_font = False
-  [[WildCherry]]
-    icon_bell = False
-    background_color = "#1f1726"
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#dd00ff"
-    font = Ubuntu Mono 13
-    foreground_color = "#dafaff"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#000507:#d94085:#2ab250:#ffd16f:#883cdc:#ececec:#c1b8b7:#fff8de:#009cc9:#da6bac:#f4dca5:#eac066:#308cba:#ae636b:#ff919d:#e4838d"
-    use_system_font = False
-  [[Aurora]]
-    icon_bell = False
-    background_color = "#0f1c21"
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#00485a"
-    font = Ubuntu Mono 13
-    foreground_color = "#80b6ad"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#0f1c21:#046655:#04c975:#b5bd68:#308891:#94a5bc:#8abeb7:#80b6ad:#0f1c21:#046655:#04c975:#b5bd68:#308891:#94a5bc:#8abeb7:#80b6ad"
-    use_system_font = False
-  [[Batman]]
-    icon_bell = False
-    background_color = "#1b1d1e"
-    background_darkness = 0.9
-    background_type = transparent
-    cursor_color = "#fcef0c"
-    font = Ubuntu Mono 13
-    foreground_color = "#6f6f6f"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_lines = 5000
-    palette = "#1b1d1e:#e6dc44:#c8be46:#f4fd22:#737174:#747271:#62605f:#c6c5bf:#505354:#fff78e:#fff27d:#feed6c:#919495:#9a9a9d:#a3a3a6:#dadbd6"
-    use_system_font = False
 [layouts]
   [[default]]
-    [[[window0]]]
-      type = Window
-      parent = ""
     [[[child1]]]
-      type = Terminal
       parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
 [plugins]

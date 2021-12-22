@@ -99,11 +99,11 @@ function color_my_prompt {
     local user_and_host="\n\[\e[30;1m\]\[\016\]\[\017\](\[\e[34;1m\]\u at \h\[\e[30;1m\])"
     local cur_time_and_date="(\[\e[34;1m\]\@ \d\[\e[30;1m\])"
     local git_branch_color="\[\033[31m\]"
-	 local cur_location="\[\e[30;1m\]\n\[\016\]\[\017\]-(\[\[\e[32;1m\]\w\[\e[30;1m\])"
+	local cur_location="\[\e[30;1m\]\n\[\016\]\[\017\]-(\[\[\e[32;1m\]\w\[\e[30;1m\])"
     local git_branch='`git branch 2> /dev/null | grep -e ^* | sed -E  s/^\\\\\*\ \(.+\)$/\(\\\\\1\)\/`'
     local prompt_tail="\[\033[35m\]$"
     local last_color="\[\033[00m\]"
-	 export PS1="$user_and_host $cur_time_and_date $cur_location $git_branch_color$git_branch$__prompt_tail$last_color-> "
+	export PS1="$user_and_host $cur_time_and_date $cur_location $git_branch_color$git_branch$__prompt_tail$last_color-> "
 }
 color_my_prompt
 

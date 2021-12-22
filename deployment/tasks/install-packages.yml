@@ -28,13 +28,20 @@
     - gimp 
     - vlc 
     - compton
-    - openvpn 
+    - openvpn
+    - flameshot
+    - wireshark
+    - gparted
+    - htop
+    - build-essential
     
 # Install some snap packages
 - name: Install snap packages
   snap: 
     name:
       - spotify
+      - kontena-lens --classic
 
 - name: Install oh my zsh
   shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+

@@ -1,8 +1,16 @@
+# create user ubuntu
+- name: Create user ubuntu and add him to group
+  ansible.builtin.user:
+    name: ubuntu
+    shell: /usr/bin/zsh
+    groups: sudo,docker
+    append: yes
+
 # Download git repository with my config files
 - name: Clone the repository 
   git:
     repo: https://gitlab.com/kazyklas/linux.git
-    dest: /home/ubuntu/Documents
+    dest: /home/ubuntu/Documents/linux
 
 ########################################################################
 # Create the folders for the config files 
@@ -16,7 +24,6 @@
     group: ubuntu
     mode: '0777'
 
-
 - name: Create folder for i3
   file:
     path: /home/ubuntu/.config/i3
@@ -24,11 +31,6 @@
     owner: ubuntu
     group: ubuntu
     mode: '0777'
-
-
-########################################################################
-# Copy config files to the desired directories
-########################################################################
 
 - name: Copy config files for terminator
   copy:
@@ -47,9 +49,27 @@
 # Copy dotfiles to the system
 ########################################################################
 
-- name: Copy .vimrc
-  copy:
-    src: /home/ubuntu/Documets/linux/dotfiles/*
-    dest: /home/ubuntu
-    remote_src: yes
+- name: Create links to files from gitlab Dotfiles
+  ansible.builtin.file:
+    src: '/home/ubuntu/Documents/linux/dotfiles/{{ item.src }}'
+    dest: '/home/ubuntu/{{ item.dest }}'
+    state: link 
+  loop:
+    - { src: .vimrc, dest: .vimrc }
+    - { src: .zshrc, dest: .zshrc }
+    - { src: .bashrc, dest: .bashrc }
 
+
+########################################################################
+# Create the folders for the config files 
+########################################################################
+
+- name: Create links to files from gitlab Dotfiles
+  ansible.builtin.file:
+    src: '/home/ubuntu/Documents/linux/dotfiles/{{ item.src }}'
+    dest: '/home/ubuntu/{{ item.dest }}'
+    state: link 
+  loop:
+    - { src: .vimrc, dest: .vimrc }
+    - { src: .zshrc, dest: .zshrc }
+    - { src: .bashrc, dest: .bashrc }

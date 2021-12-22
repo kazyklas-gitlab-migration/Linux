@@ -17,16 +17,22 @@ WHERETO=$3
 ffmpeg -i "$2" -filter:v fps=10 /tmp/"$1"
 
 # copy the video into the destiantion
-scp /tmp/$1 root@calculon.office.dtml:"$WHERETO/$NAME"
+if [ "$3" -eq "1" ]; then
+	echo "Uploading KS"
+	scp /tmp/$1 root@calculon.office.dtml:"/opt/videostreamer/opt/videostreamer/static/video/KnowledgeSharings/$NAME"
+elif [ "$3" -eq "2" ]; then
+	echo "Uploading DDLT"
+	scp /tmp/$1 root@calculon.office.dtml:"/opt/videostreamer/opt/videostreamer/static/video/DDPLightingTalks/$NAME"
+elif [ "$3" -eq "3" ]; then
+	echo "Uploading WebDevLT"
+	scp /tmp/$1 root@calculon.office.dtml:"/opt/videostreamer/opt/videostreamer/static/video/WebDevLightingTalks/$NAME"
+elif [ "$3" -eq "4" ]; then
+	echo "Uploading DSLT"
+	scp /tmp/$1 root@calculon.office.dtml:"/opt/videostreamer/opt/videostreamer/static/video/DSLightingTalks/$NAME"
+elif [ "$3" -eq "5" ]; then
+	echo "Uploading DSRG"
+	scp /tmp/$1 root@calculon.office.dtml:"/opt/videostreamer/opt/videostreamer/static/video/DatascienceReadingGroup/$NAME"
+fi
 
 echo "Video uploaded"
 
-cat << EOF 
-Hi,
-
-the video is uploaded and can be found on:
-http://stream.dtml/video$WHERETO/$NAME
-
-Have a nice day,
-Tomas Klas
-EOF
