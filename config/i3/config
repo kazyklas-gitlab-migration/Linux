@@ -175,11 +175,17 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+
+# Get the themes https://bumblebee-status.readthedocs.io/en/main/themes.html
+# Get the bumblebee-status https://github.com/tobi-wan-kenobi/bumblebee-status
+# Get psutil - pip install psutil for the cpu module
 bar {
-        status_command i3status
+	status_command /home/ubuntu/.local/bin/bumblebee-status \
+		-m ping network_traffic xrandr amixer memory cpu battery date time\
+		-p memory.format={used} ping.address=8.8.8.8 battery.critical=25\
+		-t iceberg
 }
+       
 
 ################################################################
 #################MINE_THINGS####################################
@@ -199,7 +205,7 @@ bindsym $mod+Shift+i exec /bin/bash -c "/home/tklas/.config/i3/adjust-brightnes.
 
 #### Run passwd manager
 bindsym $mod+Shift+b exec /home/ubuntu/Downloads/Buttercup-linux-x86_64.AppImage
-
+ 
 #### Borders
 for_window [class="XTerm"] floating enable
 for_window [class="urxvt"] border pixel 1
@@ -214,7 +220,7 @@ new_window pixel 2
 
 #### Setup wallpaper
 # exec --no-startup-id feh --bg-fill /home/tklas/Pictures/batman.jpg
-exec --no-startup-id feh --bg-fill /home/ubuntu/Pictures/Datamole-Green-4K.jpg
+exec --no-startup-id feh --bg-fill /home/ubuntu/Pictures/wallpaper.jpg
 
 #### Start terminal transparency
 exec_always compton
